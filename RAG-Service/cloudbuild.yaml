@@ -1,0 +1,41 @@
+steps:
+  # Build the Docker image for the RAG service
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_RAG_SERVICE_NAME}:$COMMIT_SHA'
+      - '.'
+      - '-f'
+      - 'Dockerfile'
+    id: 'Build RAG Docker Image'
+
+  # Push the Docker image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_RAG_SERVICE_NAME}:$COMMIT_SHA'
+    id: 'Push RAG Docker Image'
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_RAG_SERVICE_NAME}'
+      - '--image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_RAG_SERVICE_NAME}:$COMMIT_SHA'
+      - '--region=${_REGION}'
+      - '--platform=managed'
+      - '--quiet'
+      - '--allow-unauthenticated' # Allows your frontend to call it. Consider more secure options later.
+      # - '--set-env-vars=OPENAI_API_KEY=your-key' # Example for setting environment variables
+    id: 'Deploy RAG Service to Cloud Run'
+
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_RAG_SERVICE_NAME}:$COMMIT_SHA'
+
+substitutions:
+  _RAG_SERVICE_NAME: 'aip-rag-service' # Choose a name for your new Cloud Run service
+  _REGION: 'us-central1' # Use the same region as your website
+  _ARTIFACT_REGISTRY_REPO: 'your-artifact-registry-repo-name' # Use the same Artifact Registry repo
