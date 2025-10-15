@@ -94,6 +94,53 @@ Implemented an AI system combining computer vision and NLP for image-based quest
   - Interactive web interface
   - Containerized deployment
 
+### 5. YOLO Person Tracking System
+
+Developed a real-time person detection and tracking application using YOLOv12 integrated with Flask.
+
+- **Tech Stack**:
+  - Python Flask
+  - YOLOv12 (Ultralytics)
+  - OpenCV
+  - ByteTrack tracking algorithm
+  - PyTorch
+- **Capabilities**:
+  - Real-time webcam person tracking with unique IDs
+  - Web interface for live video streaming
+  - Batch video processing for offline analysis
+  - RESTful API for accessing tracking data
+  - Modular design for live and batch processing
+- **Key Features**:
+  - Accurate person detection and ID persistence across frames
+  - MJPEG video streaming
+  - JSON API for current tracked person IDs
+  - Support for multiple video formats
+  - Easy deployment and testing
+
+### 6. Student Attendance System
+
+Built a comprehensive face recognition-based attendance management system with real-time tracking and web interface.
+
+- **Tech Stack**:
+  - Python Flask
+  - OpenCV
+  - LBPH Face Recognition
+  - Haar Cascade Classifiers
+  - PIL (Pillow)
+  - Pandas
+- **Capabilities**:
+  - Automated student enrollment with face capture
+  - Real-time face recognition and attendance marking
+  - Web dashboard for system management
+  - CSV-based data storage for students and attendance
+  - Live camera streaming with face detection overlays
+- **Key Features**:
+  - 50-image face capture per student for robust training
+  - Confidence-based recognition with duplicate prevention
+  - Daily attendance tracking with timestamps
+  - Status snapshots for attendance verification
+  - Command-line tools for batch operations
+
 ## 🛠️ Technologies & Skills Demonstrated
 
 ### Programming Languages
@@ -144,9 +191,11 @@ Implemented an AI system combining computer vision and NLP for image-based quest
 
 ```bash
 AIPlaneTech-Work/
-├── RAG-Service/          # Flask-based RAG implementation
-├── VQA/                  # Visual Question Answering system
-└── README.md            # Project documentation
+├── RAG-Service/               # Flask-based RAG implementation
+├── VQA/                       # Visual Question Answering system
+├── YoloWebFlask/              # YOLO person tracking system
+├── Student Attendance System/ # Face recognition attendance system
+└── README.md                 # Project documentation
 ```
 
 ## 🔗 Links to Individual Repositories
