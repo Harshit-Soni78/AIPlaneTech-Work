@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Demo System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>API Demo System</h1>
+
+    <!-- Display Users -->
+    <h2>Users</h2>
+    <table id="userTable">
+        <tr>
+            <th>ID</th><th>Name</th><th>Age</th><th>Actions</th>
+        </tr>
+    </table>
+
+    <!-- Add User -->
+    <h2>Add a User</h2>
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <!-- Upload to GCP -->
+    <button id="uploadButton">Upload Data to GCP</button>
+
+    <!-- Download from GCP -->
+    <button id="downloadButton">Download Data from GCP</button>
+
+    <script>
+        // Fetch and Display Users
+        async function fetchUsers() {
+            const response = await fetch('/get_users');
+            const users = await response.json();
+            const table = document.getElementById('userTable');
+
+            // Clear table except headers
+            table.innerHTML = "<tr><th>ID</th><th>Name</th><th>Age</th><th>Actions</th></tr>";
+            
+            for (const id in users) {
+                const user = users[id];
+                const row = `<tr>
+                    <td>${id}</td>
+                    <td><input type="text" value="${user.name}" id="name_${id}"></td>
+                    <td><input type="number" value="${user.age}" id="age_${id}"></td>
+                    <td>
+                        <button onclick="updateUser('${id}')">Update</button>
+                        <button onclick="deleteUser('${id}')">Delete</button>
+                    </td>
+                </tr>`;
+                table.innerHTML += row;
+            }
+        }
+
+        // Add User
+        document.getElementById('userForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+
+            const response = await fetch('/add_user', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, age })
+            });
+
+            const data = await response.json();
+            alert(data.message);
+            fetchUsers(); // Refresh user list
+        });
+
+        // Update User
+        async function updateUser(userId) {
+            const name = document.getElementById(`name_${userId}`).value;
+            const age = document.getElementById(`age_${userId}`).value;
+
+            const response = await fetch(`/update_user/${userId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, age })
+            });
+
+            const data = await response.json();
+            alert(data.message);
+            fetchUsers(); // Refresh list
+        }
+
+        // Delete User
+        async function deleteUser(userId) {
+            const response = await fetch(`/delete_user/${userId}`, { method: 'DELETE' });
+            const data = await response.json();
+            alert(data.message);
+            fetchUsers(); // Refresh list
+        }
+
+        // Upload to GCP
+        document.getElementById('uploadButton').addEventListener('click', async function() {
+            const response = await fetch('/upload_to_gcp', { method: 'POST' });
+            const data = await response.json();
+            alert(data.message || "Upload failed.");
+        });
+
+        // Download from GCP
+        document.getElementById('downloadButton').addEventListener('click', async function() {
+            const response = await fetch('/download_from_gcp');
+            const data = await response.json();
+            alert(data.message || "Download failed.");
+            fetchUsers(); // Refresh list after downloading
+        });
+
+        // Initialize users table
+        fetchUsers();
+    </script>
+</body>
+</html>
