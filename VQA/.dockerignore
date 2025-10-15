@@ -1,0 +1,16 @@
+
+venv/
+
+.DS_Store
+.git
+vqaenv/
+__pycache__/
+node_modules/
+.vscode/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+.vqa-frontend/node_modules/
+
