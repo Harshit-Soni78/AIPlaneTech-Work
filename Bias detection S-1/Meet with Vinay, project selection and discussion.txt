@@ -1,0 +1,103 @@
+GDPR: general data protection act
+CCPA: Same as GDPR in California
+
+What did you guys document. A project description, phases, features, sprints, user stories, design, architecture, schedule, estimates, et al...? Please share, if any.
+
+Answer,
+
+Vinay sir told me about his idea about some services for Bias Detection and Data Privacy.
+
+"Desription will be as below
+BDB - Biased detected in the database 
+BPM - Biased detected in the prediction model
+DDB - Data privacy detected in database 
+DPM - Data proivacy detected in prediction model "
+
+
+/**************************************************\
+
+For Bias Detection
+
+Services 1: Definition of parameters for Bias 
+Work : Develop a GUI interface to take input of multiple parameters ;  Store parameter in a database table. Keep two parameters as Bias_parameter and Description_Bias_parameter.
+
+Services 2: Scan datasets for defined parameters for Bias as an on demand process
+Work : In a loop, for each parameter in S-1, Flag any occurences of Bias parameters in data elements; insert row in non-conformance table with non-conformance type as "BDB" and process from the next parameter
+
+
+Services 3: Scan prediction models for defined parameters for Bias as an on demand process (S3)
+Work: In a lopp, Flag any occurences of Bias parameters in prediction models ; insert row in non-conformance table with non-conformance type as "BPM" and process from the next parameter
+
+\**************************************************/
+
+For Data Privacy
+
+Services 4: Definition of parameters for Data Privacy based on regulatory requirements such as GDPR, CCPA etc.
+Work : Develop a GUI interface to take input of multiple parameter ;  Store parameter in a database table 
+
+Services 5: Scan datasets for defined parameters for Data Privacy as an on demand process
+Work : In a loop, Flag any occurrences of Data privacy parameters in data elements; insert row in non-conformance table with non-conformance type as "DDB" and process from the next parameter
+
+Services 6: Scan prediction models for defined parameters for Data Privacy as an on demand process
+Work : In a loop, Flag any occurrences of Data privacy parameters in prediction models ; insert row in non-conformance table with non-conformance type as "DPM" and process from the next parameter
+
+/**************************************************\
+
+
+15-05-2025 --> Meet with Vinay sir
+
+Discussion happened:
+
+Project Service 1 Showcase, needs some changes like edit record and delete record buttons
+
+
+Project Idea --> compare two or more pdf/docs contents and then generate a report. also has ability to chat.
+
+
+/**************************************************\
+
+
+Ensuring Trustworthy AI through ISO 42001:2023
+
+Introduction
+• The ISO/IEC 42001:2023 standard provides a framework for organizations to establish, implement, maintain, and continuously improve an AI 
+
+Management System (AIMS)
+• AIMS ensures the responsible, ethical, and trustworthy development and usage of AI systems
+• It helps organizations manage risks associated with AI, build trust with stakeholders, and comply with relevant regulations.
+
+The regulation and responsible use of artificial intelligence (AI) has been a hot topic, prompting the release of NIST’s AI Risk Management Framework, and EU AI Act to help organizations secure this emerging technology besides ISO 42001:2023. 
+These standards will address the need to implement safeguards addressing the security, safety, privacy, fairness, transparency, and data quality of AI systems throughout their life cycle including ISO/IEC 42001 and, EU AI Act. 
+ISO is already well-known among those interested in cybersecurity, as it offers frameworks for the implementation of different management systems that can help you improve different aspects of your organization. Now, through the release of ISO 4200, ISO is getting into the AI game with what are the best practices for an AI management system (AIMS). 
+
+Below is our high-level approach to enable an organization on ISO 42001:
+ 
+1. Review your AI Strategy 
+Are we outsourcing components for our AI systems or are we building our large language models (LLMs) in-house, intended uses of our AI systems, types of data our AI systems will process, store, transmit, etc., where will we source our model training data, and what are our data quality characteristics
+
+2. Understand Your Resource Requirements 
+Does your organization intend to build your AIMS using in-house expertise or will you need a third-party consultant
+
+3. Educate your team
+Potential risks of the AI system, Policies and procedures governing the acceptable use and development of AI systems, and their role(s)
+
+4. Assess Your Risk
+Help you determine the potential / reasonably foreseeable impact of your AI systems on individuals, groups of individuals, and/or societies
+
+5. Document Control and Processes 
+Once AI risk assessment process is completed including impact assessment. You can begin implementing controls that will help you mitigate the risks 
+
+6. Readiness / Internal Audit 
+At this stage, we will perform a readiness audit, identify non-conformances, corrective actions, and fix them
+
+7. Certification Audit from the certifying authority
+At this stage, we will invite the certification authority and walk them through the complete AIMS policy, process and procedures. We will face the audit and will involve your AI team on a need basis 
+
+Our Offerings for ISO 42001
+1. ISO 42001 enablement 
+2. Gap Assessment 
+3. Risk Assessment 
+
+Please connect us at info@cyberarcadia.in for a focused discussion. 
+#ISO42001
+#AI
