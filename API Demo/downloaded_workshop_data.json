@@ -1,0 +1,109 @@
+{
+
+  "Hansika": [
+
+    {
+
+      "id": "Team DAAS",
+
+      "title": "Batch 1 - 10-Day AI Workshop",
+
+      "collaboration": "AIPlaneTech collaborated with MBM University, Jodhpur to provide hands-on experience in AI, ML, and NLP.",
+
+      "overview": [
+
+        {
+
+          "day": "Day 1",
+
+          "description": "Inauguration and AI Introduction by Prof. Jayashree Vajpai and Shyam Bhushan."
+
+        },
+
+        {
+
+          "day": "Day 2",
+
+          "description": "Fundamentals of Natural Language Processing (NLP)."
+
+        },
+
+        {
+
+          "day": "Day 3",
+
+          "description": "Introduction to GitHub and version control systems."
+
+        },
+
+        {
+
+          "day": "Day 4",
+
+          "description": "Building ultra-basic AI chatbot (without GUI)."
+
+        },
+
+        {
+
+          "day": "Day 5-6",
+
+          "description": "Implementing neural networks using NumPy and mathematical concepts."
+
+        },
+
+        { "day": "Day 7", "description": "AI chatbot with GUI." },
+
+        {
+
+          "day": "Day 8",
+
+          "description": "YouTube comment sentiment analysis."
+
+        },
+
+        {
+
+          "day": "Day 9",
+
+          "description": "Project presentations - showcasing innovative solutions."
+
+        },
+
+        {
+
+          "day": "Day 10",
+
+          "description": "Award ceremony and certificate distribution."
+
+        }
+
+      ],
+
+      "projects": [
+
+        { "name": "Comment Analyzer" },
+
+        { "name": "Quikk-Notes-AI" },
+
+        { "name": "Cold Mail Generator" },
+
+        { "name": "WhatsApp Chat Analyzer" },
+
+        { "name": "Subscrptify" },
+
+        { "name": "Python Quiz and Info Bot" },
+
+        { "name": "Chatbot" },
+
+        { "name": "Mental Health AI Chatbot" },
+
+        { "name": "CritiqueCrafter" }
+
+      ]
+
+    }
+  ]
+
+}
+
