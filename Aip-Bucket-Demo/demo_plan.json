@@ -1,0 +1,58 @@
+[
+  {
+    "action": "list_all_project_buckets",
+    "params": {}
+  },
+  {
+    "action": "upload_file",
+    "params": {
+      "source_file_path": "demo_upload.txt",
+      "destination_blob_name": "my-test-file.txt"
+    }
+  },
+  {
+    "action": "list_files",
+    "params": {}
+  },
+  {
+    "action": "view_file",
+    "params": {
+      "blob_name": "my-test-file.txt"
+    }
+  },
+  {
+    "action": "download_file",
+    "params": {
+      "source_blob_name": "my-test-file.txt",
+      "destination_file_path": "demo_downloaded.txt"
+    }
+  },
+  {
+    "action": "edit_file",
+    "params": {
+      "blob_name": "my-test-file.txt",
+      "new_content": "This content has been edited.\nGoodbye, world!"
+    }
+  },
+  {
+    "action": "view_file",
+    "params": {
+      "blob_name": "my-test-file.txt"
+    }
+  },
+  {
+    "action": "create_folder",
+    "params": {
+      "folder_name": "my-demo-folder/"
+    }
+  },
+  {
+    "action": "upload_file",
+    "params": {
+      "source_file_path": "demo_upload.txt",
+      "destination_blob_name": "my-demo-folder/file-inside-folder.txt"
+    }
+  },
+  { "action": "list_files", "params": {} },
+  { "action": "list_directories", "params": {} }
+]
