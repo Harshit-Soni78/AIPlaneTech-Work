@@ -89,3 +89,9 @@
 ## 📬 API Usage
 
 - Visit [http://localhost:8000/docs](http://localhost:8000/docs) for interactive API documentation (Swagger UI).
+
+## Team
+
+- Harshit Soni
+- Megha Acharya
+- Abhijeet Sharma
